@@ -23,7 +23,7 @@ export class Node<T> {
 }
 
 /**
- * @class Node 
+ * @class LinkedList 
  * @type T 
  */
 export class LinkedList<T> {
@@ -55,10 +55,10 @@ export class LinkedList<T> {
     }
 
 
-     /**
-     * @method addLast This method insert in first position of Linkedlist
-     * @param value This param represents any value
-     */
+    /**
+    * @method addLast This method insert in first position of Linkedlist
+    * @param value This param represents any value
+    */
     public addLast(value: any) {
 
         // if first parameter equals null value, 
@@ -75,44 +75,22 @@ export class LinkedList<T> {
 
     }
 
-    public printList() {
-        let iterador: Node<T> = this.first;
-        let contador = 0
-        while (iterador != null) {
-            if (iterador.next != null) {
-                process.stdout.write(`[ ${iterador.value} ] ---> `);
+    public print() {
+        let current: Node<T> = this.first;
+        let result = ''
+        while (current != null) {
 
-            } else {
-                process.stdout.write(`[ ${iterador.value} ]  `);
-            }
+            current.next ? result += ` ${current.value} ->` : result += ` ${current.value} `
 
-
-
-            iterador = iterador.next;
-
-            contador++
+            current = current.next
 
         }
-        console.log()
+        return result
     }
-
-
-
-
 
 }
 
 
-const list: LinkedList<string> = new LinkedList();
-
-list.addFirst('hola')
-list.addFirst('hola2')
-list.addLast('hola4')
-list.addFirst('hola5')
-list.addLast('hola6')
-
-
-list.printList()
 
 
 
